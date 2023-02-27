@@ -4,19 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".activity.DetailActivity">
 
-    <LinearLayout
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center">
-
-        <Button
-            android:id="@+id/navBtn"
-            style="@style/button"/>
-
-    </LinearLayout>
-
-
+        android:gravity="center"
+        android:textSize="24sp"
+        android:text="Привет"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

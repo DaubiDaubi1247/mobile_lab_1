@@ -11,6 +11,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Lab1"
         tools:targetApi="31">
+<!--        спросить про почему такой импорт-->
+        <activity
+            android:name=".DetailActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -20,6 +24,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="ru.alex.lab1.activity.DetailActivity" />
     </application>
 
 </manifest>
