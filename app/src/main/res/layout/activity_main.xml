@@ -9,11 +9,18 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/navBtn"
-            style="@style/button"/>
+            style="@style/button"
+            android:text="@string/buttonText"/>
+
+        <Button
+            android:id="@+id/navToGithub"
+            style="@style/button"
+            android:text="@string/toGithub"/>
 
     </LinearLayout>
 
