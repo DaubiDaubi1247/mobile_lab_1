@@ -1,5 +1,6 @@
 package ru.alex.remember.service.Impl;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,10 +24,10 @@ public class AccountServiceImpl implements AccountService {
     @Override
     @Transactional
     //todo убрать добавление новой роли, просто хочу удостовериться что правильно настроил сщуности
-    public AccountDto createAccount(AccountWithPasswordDto account) {
+    public AccountDto createAccount(@Valid AccountWithPasswordDto account) {
         Account savedAccount = accountMapper.toEntity(account);
         savedAccount.getRoleList().add(new Role());
 
-        return accountMapper.toDto(savedAccount);
+        return accountMapper.toDto(accountRepository.save(savedAccount));
     }
 }
