@@ -2,9 +2,13 @@ package ru.alex.remember.service.Impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 import ru.alex.remember.dto.AccountDto;
 import ru.alex.remember.dto.AccountWithPasswordDto;
+import ru.alex.remember.entity.Account;
+import ru.alex.remember.entity.Role;
+import ru.alex.remember.mapper.AccountMapper;
 import ru.alex.remember.repository.AccountRepository;
 import ru.alex.remember.service.AccountService;
 
@@ -14,9 +18,15 @@ import ru.alex.remember.service.AccountService;
 public class AccountServiceImpl implements AccountService {
 
     private final AccountRepository accountRepository;
+    private final AccountMapper accountMapper;
 
     @Override
+    @Transactional
+    //todo убрать добавление новой роли, просто хочу удостовериться что правильно настроил сщуности
     public AccountDto createAccount(AccountWithPasswordDto account) {
-        return null;
+        Account savedAccount = accountMapper.toEntity(account);
+        savedAccount.getRoleList().add(new Role());
+
+        return accountMapper.toDto(savedAccount);
     }
 }
