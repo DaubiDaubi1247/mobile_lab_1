@@ -18,6 +18,4 @@ public class AccountDto {
     @NotBlank(message = "role must be not null and not empty")
     private String role;
 
-    @NotBlank(message = "password must be not null and not empty")
-    private String password;
 }
