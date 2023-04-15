@@ -32,5 +32,10 @@ public class Account {
     @JoinTable(name = "user_role",
                 joinColumns = @JoinColumn(name = "account_id"),
                 inverseJoinColumns = @JoinColumn(name = "role_id"))
+    @Builder.Default
     private List<Role> roleList = new ArrayList<>();
+
+    public void addRole(Role role) {
+        roleList.add(role);
+    }
 }

@@ -26,5 +26,10 @@ public class Role {
     private String name;
 
     @ManyToMany(mappedBy = "roleList")
+    @Builder.Default
     private List<Account> userList = new ArrayList<>();
+
+    public void addAccount(Account account) {
+        userList.add(account);
+    }
 }

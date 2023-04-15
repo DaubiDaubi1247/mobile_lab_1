@@ -26,7 +26,11 @@ public class AccountServiceImpl implements AccountService {
     //todo убрать добавление новой роли, просто хочу удостовериться что правильно настроил сщуности
     public AccountDto createAccount(@Valid AccountWithPasswordDto account) {
         Account savedAccount = accountMapper.toEntity(account);
-        savedAccount.getRoleList().add(new Role());
+
+        Role role = Role.builder().name("admin").build();
+        role.addAccount(savedAccount);
+
+        savedAccount.addRole(role);
 
         return accountMapper.toDto(accountRepository.save(savedAccount));
     }
